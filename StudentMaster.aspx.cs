@@ -88,6 +88,7 @@ public partial class StudentMaster : System.Web.UI.Page
             txtAddress.Text = dt.Rows[0]["Address"].ToString();
             txtrollno.Text = dt.Rows[0]["RollNo"].ToString();
             calDOB.SelectedDate = Convert.ToDateTime(dt.Rows[0]["SDOB"].ToString());
+            calDOB.VisibleDate = calDOB.SelectedDate;
             btnSubmit.Text = "Update";
             chkSubject.ClearSelection();
             DataTable dt1 = obj.SelectStudentSubjectList(StudentID);
@@ -138,5 +139,11 @@ public partial class StudentMaster : System.Web.UI.Page
     {
         obj = new clsStudentMaster();
         obj.DeleteStudentSubject(StudentID);
+    }
+    
+    protected void gvStudentMaster_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        gvStudentMaster.PageIndex = e.NewPageIndex;
+        BindGridview();
     }
 }
