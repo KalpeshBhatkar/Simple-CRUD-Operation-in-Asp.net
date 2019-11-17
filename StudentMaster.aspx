@@ -75,7 +75,7 @@
             </table>
         </div>
         <div>
-            <asp:GridView ID="gvStudentMaster" runat="server" AllowPaging="true" PageSize="10" DataKeyNames="StudentID" AutoGenerateColumns="false">
+            <asp:GridView ID="gvStudentMaster" runat="server" AllowPaging="true" PageSize="10" DataKeyNames="StudentID" AutoGenerateColumns="false" OnPageIndexChanging="gvStudentMaster_PageIndexChanging">
                 <Columns>
                     <asp:TemplateField HeaderText="Sr.No">
                         <ItemTemplate>
